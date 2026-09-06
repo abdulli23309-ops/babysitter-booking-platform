@@ -1,0 +1,44 @@
+/* ============================================================
+   Phase F2 & Phase F-UI — Global styles
+   Universal Box-Sizing & Mobile Resets
+   ============================================================ */
+
+/* Universal box-sizing reset across all elements, pseudo-elements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Keyboard-only focus ring */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Mobile-app touch ergonomics and antialiasing */
+html, body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  font-family: var(--font-sans, system-ui, sans-serif);
+}
+
+/* Base button and interactive resets */
+button, a {
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

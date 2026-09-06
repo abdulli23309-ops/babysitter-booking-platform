@@ -1,0 +1,461 @@
+/* ============================================================
+   Set Availability — Frame 18_2 Strict Replication
+   ============================================================ */
+
+.availContainer {
+  min-height: 100vh;
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  padding: 16px 16px calc(84px + 16px);
+  background: var(--gradient-auth-pastel, linear-gradient(160deg, #FBD5E5 0%, #E6DCF5 45%, #CCE6FF 100%));
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow-x: hidden;
+}
+
+/* Top Bar: BackButton on left, centered title, spacer on right */
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 4px;
+}
+
+.headerCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+}
+
+.pageTitle {
+  margin: 0;
+  font-size: 19px;
+  font-weight: 700;
+  color: #1A1D2E;
+  text-align: center;
+}
+
+.topBarSpacer {
+  width: 42px;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: #5A6072;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Calendar Card (Frame 18_2) */
+.calendarCard {
+  background: #FFFFFF;
+  border-radius: 28px;
+  padding: 20px 18px;
+  box-shadow: 0 6px 24px rgba(26, 29, 46, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.calendarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+}
+
+.navIcon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  color: #E8622A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  outline: none;
+}
+
+.navIcon:hover {
+  background: #FEECE5;
+}
+
+.calendarTitle {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1A1D2E;
+}
+
+/* 7-Column CSS Grid for Calendar Weekday Labels */
+.weekdaysGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  gap: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.weekdayLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: #94A3B8;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* 7-Column CSS Grid for Calendar Day Cells */
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  gap: 8px;
+  width: 100%;
+  justify-items: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.dayEmpty {
+  width: 38px;
+  height: 38px;
+}
+
+.dayBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1E293B;
+  cursor: pointer;
+  margin: 0 auto;
+  transition: all 0.15s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.dayBtn:hover {
+  background: #FEECE5;
+}
+
+/* Solid orange circle for selected dates */
+.daySelected {
+  background: #E8622A !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 10px rgba(232, 98, 42, 0.35);
+}
+
+/* Orange ring border for current/today date */
+.dayToday {
+  border: 2px solid #E8622A;
+  color: #E8622A;
+  font-weight: 700;
+}
+
+/* Available Time Section (Frame 18_2) */
+.sectionTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1A1D2E;
+}
+
+.timeGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+}
+
+.timeCardPill {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 16px 16px;
+  box-shadow: 0 4px 16px rgba(26, 29, 46, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all 0.18s ease;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.timeCardPill:hover {
+  border-color: #FED7AA;
+  transform: translateY(-1px);
+}
+
+.timeHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #E8622A;
+}
+
+.timeLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #E8622A;
+}
+
+.timeValue {
+  font-size: 17px;
+  font-weight: 800;
+  color: #1A1D2E;
+  margin: 0;
+}
+
+/* Preferred Work Area Section (Frame 18_2) */
+.areaSection {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Smart Geocoded Area Input (Neumorphic Soft-UI Pill) */
+.smartAreaWrapper {
+  background: #FFFFFF;
+  border-radius: 999px;
+  padding: 10px 18px;
+  box-shadow: 0 4px 16px rgba(26, 29, 46, 0.04);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1.5px solid transparent;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.smartAreaWrapper:focus-within {
+  border-color: #FED7AA;
+  box-shadow: 0 4px 16px rgba(232, 98, 42, 0.1);
+}
+
+.smartAreaPin {
+  color: #E8622A;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.smartAreaInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1A1D2E;
+  outline: none;
+  font-family: inherit;
+  cursor: default;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.smartAreaBadge {
+  background: #FEECE5;
+  color: #E05822;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.areaCard {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 16px 18px;
+  box-shadow: 0 4px 16px rgba(26, 29, 46, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: border-color 0.15s ease;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.areaCard:hover {
+  border-color: #FED7AA;
+}
+
+.areaCardLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.areaPinIcon {
+  color: #E8622A;
+  display: flex;
+  align-items: center;
+}
+
+.areaPlaceholder {
+  font-size: 14px;
+  color: #64748B;
+  font-weight: 500;
+}
+
+.chevronIcon {
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+}
+
+/* Area Tag Pills (Frame 18_2) */
+.tagsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.areaTag {
+  background: #FEECE5;
+  border: 1px solid #FFD9CC;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #E05822;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tagCloseBtn {
+  background: none;
+  border: none;
+  color: #E05822;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Save Availability Button (Frame 18_2) */
+.saveBtn {
+  width: 100%;
+  background: #E8622A;
+  color: #FFFFFF;
+  border-radius: 999px;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(232, 98, 42, 0.35);
+  transition: transform 0.15s ease, background 0.15s ease;
+  outline: none;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.saveBtn:hover {
+  background: #D5541E;
+}
+
+.saveBtn:active {
+  transform: scale(0.98);
+}
+
+.saveBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Area Selector Modal / Dropdown */
+.areaDropdownList {
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #F1F5F9;
+}
+
+.areaOption {
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1E293B;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.areaOption:hover {
+  background: #F8FAFC;
+  color: #E8622A;
+}
+
+/* Time Picker Options Dropdown */
+.timeDropdown {
+  background: #FFFFFF;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  padding: 8px 0;
+  max-height: 220px;
+  overflow-y: auto;
+  border: 1px solid #F1F5F9;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  margin-top: 6px;
+}
+
+.timeOption {
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1E293B;
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+  cursor: pointer;
+}
+
+.timeOption:hover {
+  background: #FEECE5;
+  color: #E8622A;
+}

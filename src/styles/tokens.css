@@ -1,0 +1,130 @@
+/* ============================================================
+   Phase F2 & Phase F-UI-2 — Design Tokens
+   Semantic CSS Custom Properties.
+   ============================================================ */
+
+:root {
+  /* ---- Brand ---- */
+  --color-primary: #E8622A;
+  --color-primary-hover: #D4541F;
+  --color-primary-active: #B94A1B;
+  --color-primary-soft: rgba(232, 98, 42, 0.12);
+
+  /* ---- Neutrals ---- */
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F7F9FC;
+  --color-background: transparent;
+  --color-border: #F0F4F8;
+  --color-border-strong: #E1E7EF;
+
+  /* ---- Text ---- */
+  --color-text: #1A1D2E;
+  --color-text-secondary: #5A6072;
+  --color-text-muted: #8E9AAF;
+  --color-text-inverse: #FFFFFF;
+
+  /* ---- Semantic ---- */
+  --color-success: #27AE60;
+  --color-success-soft: rgba(39, 174, 96, 0.12);
+  --color-error: #E74C3C;
+  --color-error-soft: rgba(231, 76, 60, 0.12);
+  --color-danger: #E74C3C;
+  --color-danger-hover: #C0392B;
+  --color-danger-soft: rgba(231, 76, 60, 0.12);
+  --color-danger-border: rgba(231, 76, 60, 0.25);
+  --color-danger-bg: rgba(231, 76, 60, 0.04);
+  --color-warning: #F39C12;
+  --color-warning-soft: rgba(243, 156, 18, 0.12);
+  --color-info: #3B82F6;
+  --color-info-soft: rgba(59, 130, 246, 0.12);
+
+  /* ---- Typography ---- */
+  --font-sans: 'DM Sans', 'Nunito', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-size-xs: 0.75rem;   /* 12px */
+  --font-size-sm: 0.875rem;  /* 14px */
+  --font-size-md: 1rem;      /* 16px */
+  --font-size-lg: 1.125rem;  /* 18px */
+  --font-size-xl: 1.25rem;   /* 20px */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+
+  /* ---- Spacing scale (4px base) ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ---- Border radius scale ---- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-full: 999px;
+
+  /* ---- Shadow scale ---- */
+  --shadow-sm: 0 1px 3px rgba(26, 29, 46, 0.08);
+  --shadow-md: 0 4px 12px rgba(26, 29, 46, 0.08);
+  --shadow-lg: 0 8px 24px rgba(26, 29, 46, 0.12);
+  --shadow-primary: 0 8px 24px rgba(232, 98, 42, 0.35);
+
+  /* ---- Motion ---- */
+  --transition-fast: 120ms ease;
+  --transition-base: 180ms ease;
+  --transition-slow: 280ms ease;
+
+  /* ---- Z-index layers ---- */
+  --z-bottom-nav: 1000;
+  --z-dropdown: 1050;
+  --z-modal-overlay: 1100;
+  --z-modal: 1110;
+  --z-toast: 1200;
+
+  /* ---- Layout & Shell ---- */
+  --shell-max-width: 480px;
+  --shell-max-width-wide: 1024px;
+
+  /* ---- Glassmorphism 2.0 ---- */
+  --glass-bg: rgba(255, 255, 255, 0.78);
+  --glass-bg-subtle: rgba(255, 255, 255, 0.60);
+  --glass-bg-elevated: rgba(255, 255, 255, 0.92);
+  --glass-border: rgba(255, 255, 255, 0.70);
+  --glass-border-subtle: rgba(230, 235, 245, 0.60);
+  --glass-blur: blur(14px);
+  --glass-blur-lg: blur(20px);
+  --glass-shadow: 0 10px 30px rgba(26, 29, 46, 0.06);
+
+  /* ---- Bento & Gradients ---- */
+  --gradient-coral: linear-gradient(135deg, #FF6B4A 0%, #E8622A 100%);
+  --gradient-coral-soft: linear-gradient(135deg, #FFF5F0 0%, #FFEBE1 100%);
+  --gradient-teal-soft: linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%);
+  --gradient-blue-soft: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
+  --gradient-purple-soft: linear-gradient(135deg, #FAF5FF 0%, #F3E8FF 100%);
+  --gradient-amber-soft: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%);
+
+  /* ---- Premium Pastel Gradients ---- */
+  --gradient-auth-pastel: linear-gradient(160deg, #FBD5E5 0%, #E6DCF5 45%, #CCE6FF 100%);
+  --gradient-pastel-soft: linear-gradient(160deg, #FBD5E5 0%, #E6DCF5 45%, #CCE6FF 100%);
+
+  /* ---- Status & Badges ---- */
+  --badge-success-bg: #E8F8F0;
+  --badge-success-text: #1E824C;
+  --badge-warning-bg: #FFF3EB;
+  --badge-warning-text: #C8521A;
+  --badge-info-bg: #EBF4FF;
+  --badge-info-text: #2563EB;
+  --badge-purple-bg: #F5EEFD;
+  --badge-purple-text: #7C3AED;
+}
+

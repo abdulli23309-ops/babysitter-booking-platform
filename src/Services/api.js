@@ -1,108 +1,53 @@
-const BASE_URL = "/api";
+import { apiGet, apiPost, apiDelete } from './apiClient';
 
 export const API = {
   // Get matching sitters for a job
-  getMatchingSitters: async (jobId) => {
-    const res = await fetch(`${BASE_URL}/jobs/${jobId}/matchingsitters`);
-    return res.json();
-  },
+  getMatchingSitters: (jobId) => apiGet(`/matching/matches/${jobId}`),
 
   // Get job details
-  getJobDetails: async (jobId) => {
-    const res = await fetch(`${BASE_URL}/jobs/jobdetails/${jobId}`);
-    return res.json();
-  },
+  getJobDetails: (jobId) => apiGet(`/jobs/jobdetails/${jobId}`),
 
-  // Get all sitters (optional)
-  getSitters: async () => {
-    const res = await fetch(`${BASE_URL}/matching/sitters`);
-    return res.json();
-  },
+  // Get all sitters (search sitters)
+  getSitters: () => apiPost('/matching/search-sitters', {}),
 
   // Reject a job
-  rejectJob: async (jobId) => {
-    const res = await fetch(`${BASE_URL}/matching/reject?jobId=${jobId}`, {
-      method: 'POST',
-    });
-    return res.json();
-  },
+  rejectJob: (jobId) => apiPost(`/matching/reject?jobId=${jobId}`, {}),
 
   // Get sitter availability
-  getSitterAvailability: async (sitterId) => {
-    const res = await fetch(`${BASE_URL}/matching/availability/${sitterId}`);
-    if (!res.ok) throw new Error(`getSitterAvailability failed: ${res.status}`);
-    return res.json();
-  },
+  getSitterAvailability: (sitterId) => apiGet(`/matching/availability/${sitterId}`),
 
   // Get open jobs (optionally filtered by city)
-  getJobs: async (city) => {
+  getJobs: (city) => {
     const url = city
-      ? `${BASE_URL}/jobs?city=${encodeURIComponent(city)}`
-      : `${BASE_URL}/jobs`;
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`getJobs failed: ${res.status}`);
-    return res.json();
+      ? `/jobs?city=${encodeURIComponent(city)}`
+      : '/jobs';
+    return apiGet(url);
   },
 
   // Confirm a job (sitter accepts)
-  confirmJob: async (jobId, sitterId) => {
-    const res = await fetch(`${BASE_URL}/jobs/confirm/${jobId}/${sitterId}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-    });
-    if (!res.ok) throw new Error(`confirmJob failed: ${res.status}`);
-    return res.json();
-  },
+  confirmJob: (jobId, sitterId) => apiPost(`/jobs/confirm/${jobId}/${sitterId}`, {}),
 
-confirmJobsBulk: async (jobIds, sitterId) => {
-  const res = await fetch(`${BASE_URL}/jobs/confirm-bulk`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ JobIds: jobIds, SitterId: sitterId }),
-  });
-  if (!res.ok) throw new Error(`confirmJobsBulk failed: ${res.status}`);
-  return res.json();
-},
+  // Confirm bulk jobs
+  confirmJobsBulk: (jobIds, sitterId) => apiPost('/jobs/confirm-bulk', { JobIds: jobIds, SitterId: sitterId }),
 
   // Clear all availability for a sitter
-  clearAllAvailability: async (sitterId) => {
-    const res = await fetch(`${BASE_URL}/matching/availability/clear/${sitterId}`, {
-      method: 'DELETE',
-    });
-    if (!res.ok) throw new Error(`clearAllAvailability failed: ${res.status}`);
-    return res.json();
-  },
+  clearAllAvailability: (sitterId) => apiDelete(`/matching/availability/clear/${sitterId}`),
+
   // Get job requests specifically matched to a sitter's availability
-getJobRequests: async (sitterId) => {
-  const res = await fetch(`${BASE_URL}/matching/jobrequests?sitterId=${sitterId}`);
-  if (!res.ok) throw new Error(`getJobRequests failed: ${res.status}`);
-  return res.json();
-},
+  getJobRequests: (sitterId) => apiGet(`/matching/jobrequests?sitterId=${sitterId}`),
 
   // Get reviews for a user (parent or sitter)
-  getUserReviews: async (userId, role) => {
-    const res = await fetch(`${BASE_URL}/review/user/${userId}/${role}`);
-    if (!res.ok) throw new Error('Failed to fetch reviews');
-    return res.json();
-  },
+  getUserReviews: (userId, role) => apiGet(`/review/user/${userId}/${role}`),
 
   // Save sitter availability
-  saveAvailability: async (payload) => {
-    const res = await fetch(`${BASE_URL}/matching/availability/save`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-            SitterId: payload.sitterId,
-            Date: payload.date,
-            SlotIds: payload.slotIds,
-            City: payload.city,
-        }),
-    });
-    if (!res.ok) {
-        const errorText = await res.text();   // ← capture the real error
-        console.error('Save error body:', errorText);
-        throw new Error(`saveAvailability failed: ${res.status} - ${errorText}`);
-    }
-    return res.json();
-},
+  saveAvailability: (payload) =>
+    apiPost('/matching/availability/save', {
+      SitterId: payload.sitterId,
+      Date: payload.date,
+      SlotIds: payload.slotIds,
+      City: payload.city,
+    }),
 };
+
+export default API;
+

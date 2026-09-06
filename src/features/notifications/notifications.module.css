@@ -1,0 +1,348 @@
+﻿/* ============================================================
+   SURGICAL DIRECTIVE 2 — Notifications Screen CSS Module
+   Pixel-perfect match to finalized mockup (media_1788719283627.png)
+   ============================================================ */
+
+.notifContainer {
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 16px 16px calc(80px + 28px);
+  background: linear-gradient(160deg, #FBD5E5 0%, #E6DCF5 45%, #CCE6FF 100%);
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* ---- TASK A: Header Construction ---- */
+.topBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 0 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pageTitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1A1D2E;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+
+.clearBtn {
+  background: #FFFFFF;
+  border: none;
+  color: #E8622A;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.clearBtn:hover {
+  background: #FFF7ED;
+  transform: translateY(-1px);
+}
+
+.clearBtn:active {
+  transform: translateY(0);
+}
+
+/* ---- Urgent Cry Alert Banner (for Parent view) ---- */
+.cryAlertCard {
+  background: linear-gradient(135deg, #FFF1F2 0%, #FFE4E6 100%);
+  border: 1.5px solid #FDA4AF;
+  border-radius: 20px;
+  padding: 16px;
+  box-shadow: 0 4px 14px rgba(225, 29, 72, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.cryAlertHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #E11D48;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.alertPulseDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #E11D48;
+  animation: pulseCry 1.2s infinite;
+}
+
+@keyframes pulseCry {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.6); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.cryAlertText {
+  margin: 0;
+  font-size: 13px;
+  color: #5A6072;
+  line-height: 1.45;
+}
+
+/* ---- TASK B: Notification Cards List ---- */
+.notifList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  box-sizing: border-box;
+  width: 100%;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Top Row */
+.cardTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cardHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Circular icon wrapper */
+.iconWrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 2px solid #E8622A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #E8622A;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.iconWrapperPeach {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #FFF5EE;
+  border: 1.5px solid #FED7AA;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #E8622A;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1A1D2E;
+  letter-spacing: -0.01em;
+}
+
+.cardTime {
+  font-size: 12px;
+  color: #8E9AAF;
+  font-weight: 500;
+  white-space: nowrap;
+  margin-left: 8px;
+}
+
+/* Middle Row */
+.cardMessage {
+  margin: 0;
+  font-size: 14px;
+  color: #5A6072;
+  line-height: 1.45;
+}
+
+/* Bottom Row (Actions) */
+.cardActionsEnd {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  margin-top: 2px;
+}
+
+.cardActionsSplit {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: 2px;
+}
+
+/* Pill Buttons */
+.btnOutlineOrange {
+  background: #FFFFFF;
+  border: 1.5px solid #E8622A;
+  color: #E8622A;
+  border-radius: 999px;
+  padding: 8px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(232, 98, 42, 0.08);
+  transition: all 0.15s ease;
+  outline: none;
+}
+
+.btnOutlineOrange:hover {
+  background: #FFF7ED;
+  transform: translateY(-1px);
+}
+
+.btnSolidOrange {
+  background: linear-gradient(135deg, #FF6B4A 0%, #E8622A 100%);
+  border: none;
+  color: #FFFFFF;
+  border-radius: 999px;
+  padding: 9px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(232, 98, 42, 0.28);
+  transition: all 0.15s ease;
+  outline: none;
+}
+
+.btnSolidOrange:hover {
+  opacity: 0.94;
+  transform: translateY(-1px);
+}
+
+.btnAccept {
+  flex: 1;
+  background: linear-gradient(135deg, #FF6B4A 0%, #E8622A 100%);
+  border: none;
+  color: #FFFFFF;
+  border-radius: 999px;
+  padding: 11px 0;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(232, 98, 42, 0.28);
+  text-align: center;
+  transition: all 0.15s ease;
+  outline: none;
+}
+
+.btnAccept:hover {
+  opacity: 0.94;
+  transform: translateY(-1px);
+}
+
+.btnDecline {
+  flex: 1;
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  color: #4A5568;
+  border-radius: 999px;
+  padding: 11px 0;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.15s ease;
+  outline: none;
+}
+
+.btnDecline:hover {
+  background: #F8FAFC;
+  border-color: #CBD5E1;
+}
+
+/* Empty State & Restorer */
+.emptyCard {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 36px 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.emptyIconWrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #FFF5EE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #E8622A;
+  margin-bottom: 4px;
+}
+
+.emptyTitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1A1D2E;
+}
+
+.emptyDesc {
+  margin: 0;
+  font-size: 14px;
+  color: #5A6072;
+  max-width: 280px;
+}
+
+.restoreBtn {
+  margin-top: 8px;
+  background: #FFFFFF;
+  border: 1.5px solid #E8622A;
+  color: #E8622A;
+  border-radius: 999px;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.restoreBtn:hover {
+  background: #FFF7ED;
+}

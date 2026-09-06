@@ -1,0 +1,65 @@
+/* ============================================================
+   Phase F-UI-5 — MapRadiusPicker (Real Leaflet Map)
+   5 km radius selection map with rounded corners and glassmorphism badges.
+   ============================================================ */
+
+.wrap {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #F8FAFC;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  user-select: none;
+}
+
+.realMapContainer {
+  height: 230px !important;
+  width: 100% !important;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+/* Glass overlay badge — top-left radius info */
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 11px;
+  font-weight: 700;
+  color: #E8622A;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* Glass coordinates chip — bottom-right */
+.coords {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: #475569;
+  letter-spacing: 0.02em;
+  pointer-events: none;
+  z-index: 1000;
+}

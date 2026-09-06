@@ -1,0 +1,75 @@
+/* ============================================================
+   Phase F2A — Toast notification styles
+   ============================================================ */
+
+.viewport {
+  position: fixed;
+  top: var(--space-4);
+  right: var(--space-4);
+  left: var(--space-4);
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  pointer-events: none;
+  /* Keep toasts within a readable column on wide screens */
+  max-width: 420px;
+  margin-left: auto;
+}
+
+.toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-strong);
+  border-left-width: 4px;
+  box-shadow: var(--shadow-lg);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  animation: toastIn var(--transition-base) ease;
+}
+
+.message {
+  flex: 1;
+  line-height: 1.5;
+}
+
+.close {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin-left: var(--space-2);
+  font-size: 16px;
+  line-height: 1;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.close:hover {
+  color: var(--color-text);
+}
+
+.close:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ---- Type variants (left accent bar + soft tint) ---- */
+.success { border-left-color: var(--color-success); background: var(--color-success-soft); }
+.error   { border-left-color: var(--color-error);   background: var(--color-error-soft); }
+.warning { border-left-color: var(--color-warning); background: var(--color-warning-soft); }
+.info    { border-left-color: var(--color-info);    background: var(--color-info-soft); }
+
+@keyframes toastIn {
+  from { transform: translateX(16px); opacity: 0; }
+  to   { transform: translateX(0);    opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast { animation: none; }
+}

@@ -1,0 +1,360 @@
+﻿/* ============================================================
+   Phase F-UI-5 — Upcoming Job Details (Strict Image 1 & 4 Alignment)
+   ============================================================ */
+
+.container {
+  min-height: 100vh;
+  max-width: 480px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  padding: 16px 16px calc(84px + 16px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: transparent;
+}
+
+/* Header */
+.topBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+.pageTitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1A1D2E;
+  letter-spacing: -0.01em;
+}
+
+/* Status Banner */
+.statusBannerCard {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 20px 16px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.statusPillPending {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #FEF3C7;
+  border: 1.5px solid #FDE68A;
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #D97706;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.statusPillConfirmed {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #DCFCE7;
+  border: 1.5px solid #BBF7D0;
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-size: 11px;
+  font-weight: 800;
+  color: #16A34A;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.bannerSubtext {
+  margin: 0;
+  font-size: 13px;
+  color: #64748B;
+  font-weight: 500;
+}
+
+/* Parent Card */
+.parentCard {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 18px 18px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.parentHeaderRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.parentAvatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #F1F5F9;
+  background: #F8FAFC;
+  flex-shrink: 0;
+}
+
+.parentMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.parentName {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1A1D2E;
+}
+
+.ratingRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #64748B;
+  font-weight: 500;
+}
+
+.messageBtn {
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 999px;
+  border: 1.5px solid #E8622A;
+  background: #FFFFFF;
+  color: #E8622A;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.messageBtn:hover {
+  background: #FFF7ED;
+}
+
+.messageBtn:active {
+  transform: scale(0.98);
+}
+
+/* Details List Card */
+.detailsCard {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 8px 18px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+.detailRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.detailRow:last-child {
+  border-bottom: none;
+}
+
+.detailLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #64748B;
+  font-weight: 500;
+}
+
+.detailValue {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1A1D2E;
+}
+
+.earningsValue {
+  font-size: 15px;
+  font-weight: 800;
+  color: #E8622A;
+}
+
+/* Stepper Card */
+.stepperCard {
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 18px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.stepperTitle {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1A1D2E;
+}
+
+.stepperList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+
+.stepItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  position: relative;
+}
+
+.stepIconSuccess {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #DCFCE7;
+  color: #16A34A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.stepIconActive {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #FEF3C7;
+  color: #D97706;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.stepIconPending {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #F1F5F9;
+  color: #94A3B8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.stepContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 4px;
+}
+
+.stepLabel {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1A1D2E;
+}
+
+.stepDesc {
+  margin: 0;
+  font-size: 12px;
+  color: #64748B;
+  font-weight: 500;
+}
+
+/* Action Section */
+.actionSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.startJobBtnDisabled {
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 999px;
+  border: none;
+  background: #E2E8F0;
+  color: #94A3B8;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: not-allowed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+.startJobBtnActive {
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: 999px;
+  border: none;
+  background: #E8622A;
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(232, 98, 42, 0.35);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.startJobBtnActive:hover {
+  background: #D4541F;
+}
+
+.startJobBtnActive:active {
+  transform: scale(0.98);
+}
+
+.startJobHelper {
+  margin: 0;
+  font-size: 12px;
+  color: #64748B;
+  text-align: center;
+  font-weight: 500;
+}
